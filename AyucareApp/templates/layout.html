@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPEhtml>
+<html>
+<head>
+<metacharset="utf-8"/>
+<title>{% block title %}{% endblock %}</title>
+
+<linkrel="stylesheet"type="text/css"href="{% static 'Ayucare/site.css' %}"/>
+</head>
+
+<body>
+<divclass="navbar">
+<ahref="/home"class="navbar-brand">Home</a>
+<ahref="/about"class="navbar-item">About</a>
+<ahref="/contact"class="navbar-item">Contact</a>
+</div>
+
+<divclass="body-content">
+    {% block content %}
+    {% endblock %}
+<hr/>
+<footer>
+<p>&copy; 2021 Subramanya K S</p>
+</footer>
+</div>
+</body>
+</html>

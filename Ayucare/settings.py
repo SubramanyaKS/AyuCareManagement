@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'AyucareApp',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +57,7 @@ ROOT_URLCONF = 'Ayucare.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'AyucareApp/templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -73,6 +76,17 @@ WSGI_APPLICATION = 'Ayucare.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+#DATABASES = {
+ #   'default': {
+ #       'ENGINE': 'django.db.backends.mysql',
+ #       'NAME': 'AyucareManagement',
+ #       'HOST':'localhost',
+ #       'USER':'root',
+ #       'PASSWORD':'',
+ #       'PORT':3306,
+ #   }
+
+#}
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
