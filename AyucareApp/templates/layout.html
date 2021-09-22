@@ -1,21 +1,21 @@
 {% load static %}
-<!DOCTYPEhtml>
+<!DOCTYPE html>
 <html>
 <head>
-<metacharset="utf-8"/>
+<meta charset="utf-8"/>
 <title>{% block title %}{% endblock %}</title>
 
-<linkrel="stylesheet"type="text/css"href="{% static 'Ayucare/site.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'site.css' %}"/>
 </head>
 
 <body>
-<divclass="navbar">
+<div class="navbar">
 <ahref="/home"class="navbar-brand">Home</a>
 <ahref="/about"class="navbar-item">About</a>
 <ahref="/contact"class="navbar-item">Contact</a>
 </div>
 
-<divclass="body-content">
+<div class="body-content">
     {% block content %}
     {% endblock %}
 <hr/>
