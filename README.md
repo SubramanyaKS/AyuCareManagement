@@ -5,3 +5,6 @@ A REST API (also known as RESTful API) is an application programming interface (
 <b>Ayucare Management:</b> This is management system where we can get the details of products from Ayucare.and sell the products.<br><br>
 
 This is the project using django for my internship at Ekathva Innovation Pvt.Ltd.<br>
+
+contributor:
+Subramanya K S.
