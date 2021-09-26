@@ -5,7 +5,7 @@ A REST API (also known as RESTful API) is an application programming interface (
 <b>Ayucare Management:</b> This is management system where we can get the details of products from Ayucare.and sell the products.<br><br>
 
 ### Technologies used.
-Markup: * django and REST API framework.
+Markup : * django and REST API framework.
         * Database : Mongodb (currenlty in local machine).
         * Programming language: Python.
         <br>
