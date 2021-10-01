@@ -16,12 +16,12 @@ Including another URLconf
 from AyucareApp.views import nhome
 from django.contrib import admin
 from django.urls import path,re_path
-from AyucareApp.views import ayucare_detail,ayucare_list
+from AyucareApp.views import ayucare_detail,ayucare_list,ayucare_list_compound
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/',nhome),
     re_path('^api/ayucare$', ayucare_list),
     re_path('^api/ayucare/(?P<pk>[0-9]+)$', ayucare_detail),
-    
+       re_path('^api/ayucare/compound$', ayucare_list_compound)
 ]

@@ -5,6 +5,7 @@ from rest_framework import status
 from AyucareApp.models import Ayucare
 from AyucareApp.serializers import AyucareSerializer
 from rest_framework.decorators import api_view
+from django.db.models import Q
 
 
 # Create your views here.
@@ -58,5 +59,15 @@ def ayucare_detail(request, pk):
     except Ayucare.DoesNotExist:
         return JsonResponse({'message':'The Ayucare does not exist'}, status=status.HTTP_404_NOT_FOUND)
 
-
+@api_view(['GET'])
+def ayucare_list_compound(request):
+    ayucare = Ayucare.objects.all()
+    productname=request.GET.get('productname',None)
+    cure=request.GET.get('cure',None)
+    ayucare = ayucare.filter(Q(productname_icontains=productname)&Q(cure_icontains=cure))
+    if ayucare is not None:
+        print(ayucare)
+        if request.method=='GET':
+            ayucare_serializer=AyucareSerializer(ayucare, many=True)
+            return JsonResponse(ayucare_serializer.data,safe=False)
 
