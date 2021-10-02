@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser
 from rest_framework import status
-from AyucareApp.models import Ayucare
-from AyucareApp.serializers import AyucareSerializer
+from AyucareApp.models import Ayucare, Purchased, User
+from AyucareApp.serializers import AyucareSerializer, UserSerializer
+from AyucareApp.serializers import PurchasedSerializer
 from rest_framework.decorators import api_view
 from django.db.models import Q
 
@@ -11,6 +12,8 @@ from django.db.models import Q
 # Create your views here.
 def nhome(request):
     return render(request,"home.html")
+
+#Views for Ayucare Product
 
 @api_view(['GET','POST','DELETE'])
 def ayucare_list(request):
@@ -54,7 +57,7 @@ def ayucare_detail(request, pk):
 
         elif request.method=='DELETE':
             Ayucare.delete()
-        return JsonResponse({'message':'Ayucare was deleted successfully!'}, status=status.HTTP_204_NO_CONTENT)
+            return JsonResponse({'message':'Ayucare was deleted successfully!'}, status=status.HTTP_204_NO_CONTENT)
 
     except Ayucare.DoesNotExist:
         return JsonResponse({'message':'The Ayucare does not exist'}, status=status.HTTP_404_NOT_FOUND)
@@ -71,3 +74,52 @@ def ayucare_list_compound(request):
             ayucare_serializer=AyucareSerializer(ayucare, many=True)
             return JsonResponse(ayucare_serializer.data,safe=False)
 
+#User Views
+@api_view(['GET','POST','DELETE'])
+def user_list(request):
+# GET list of User, POST a new User, DELETE all Users
+    if request.method=='GET':
+        user = User.objects.all()
+        title =request.GET.get('username',None)
+        if title is not None:
+            user =user.filter(username__icontains=title)
+            user_serializer=UserSerializer(user, many=True)
+            return JsonResponse(user_serializer.data, safe=False)
+    elif request.method=='POST':
+        user_data=JSONParser().parse(request)
+        user_serializer=UserSerializer(data=user_data)
+        if user_serializer.is_valid():
+            user_serializer.save()
+            return JsonResponse(user_serializer.data, status=status.HTTP_201_CREATED)
+        return JsonResponse(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method=='DELETE':
+        count =User.objects.all().delete()
+        return JsonResponse({'message':'{} Product were deleted successfully!'.format(count[0])}, status=status.HTTP_204_NO_CONTENT)
+
+
+
+#Purchased Views
+
+@api_view(['GET','PUT','DELETE'])
+def purchased_detail(request, pk):
+    # find Ayucare by pk (id)
+    try:
+        purchased = Purchased.objects.get(pk=pk)
+        if request.method=='GET':
+            purchased_serializer=PurchasedSerializer(purchased)
+            return JsonResponse(purchased_serializer.data)
+
+        elif request.method == "PUT":
+            purchased_data=JSONParser().parse(request)
+            purchased_serializer=PurchasedSerializer(Purchased, data=purchased_data)
+            if purchased_serializer.is_valid():
+                purchased_serializer.save()
+                return JsonResponse(purchased_serializer.data)
+            return JsonResponse(purchased_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        elif request.method=='DELETE':
+            Purchased.delete()
+            return JsonResponse({'message':'Purchaed was deleted successfully!'}, status=status.HTTP_204_NO_CONTENT)
+
+    except Purchased.DoesNotExist:
+        return JsonResponse({'message':'The Purchased does not exist'}, status=status.HTTP_404_NOT_FOUND)

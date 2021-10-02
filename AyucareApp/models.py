@@ -12,11 +12,13 @@ class Ayucare(models.Model):
     expiredate=models.DateField(default=datetime.date.today)
 
 
-#class User(models.Model):
-#    user_name = models.CharField(max_length=70,default='',blank=False)
-#    email = models.CharField(max_length=25,default='',blank=False)
+class User(models.Model):
+    username = models.CharField(max_length=70,default='',blank=False)
+    email = models.CharField(max_length=25,default='',blank=False)
 
 
-#class Purchased(models.Model):
-#    user=models.ForeignKey(User,on_delete=models.CASCADE)
-#    ayu=models.ForeignKey(Ayucare,on_delete=models.CASCADE)
+class Purchased(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    ayu=models.ForeignKey(Ayucare,on_delete=models.CASCADE)
+    quantity =models.IntegerField(default=1)
+    
