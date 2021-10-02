@@ -97,6 +97,30 @@ def user_list(request):
         return JsonResponse({'message':'{} Product were deleted successfully!'.format(count[0])}, status=status.HTTP_204_NO_CONTENT)
 
 
+@api_view(['GET','PUT','DELETE'])
+def user_detail(request, pk):
+    # find User by pk (id)
+    try:
+        user = Purchased.objects.get(pk=pk)
+        if request.method=='GET':
+            user_serializer=UserSerializer(user)
+            return JsonResponse(user_serializer.data)
+
+        elif request.method == "PUT":
+            user_data=JSONParser().parse(request)
+            user_serializer=UserSerializer(User, data=user_data)
+            if user_serializer.is_valid():
+                user_serializer.save()
+                return JsonResponse(user_serializer.data)
+            return JsonResponse(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        elif request.method=='DELETE':
+            User.delete()
+            return JsonResponse({'message':'User was deleted successfully!'}, status=status.HTTP_204_NO_CONTENT)
+
+    except User.DoesNotExist:
+        return JsonResponse({'message':'The User does not exist'}, status=status.HTTP_404_NOT_FOUND)
+
 
 #Purchased Views
 
@@ -119,7 +143,7 @@ def purchased_detail(request, pk):
 
         elif request.method=='DELETE':
             Purchased.delete()
-            return JsonResponse({'message':'Purchaed was deleted successfully!'}, status=status.HTTP_204_NO_CONTENT)
+            return JsonResponse({'message':'Purchased was deleted successfully!'}, status=status.HTTP_204_NO_CONTENT)
 
     except Purchased.DoesNotExist:
         return JsonResponse({'message':'The Purchased does not exist'}, status=status.HTTP_404_NOT_FOUND)
