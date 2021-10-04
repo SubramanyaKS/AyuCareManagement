@@ -12,9 +12,9 @@ A REST API (also known as RESTful API) is an application programming interface (
 * Database : Mongodb (currenlty in local machine).
 * Programming language: Python.
         <br>
-This is the project is done for my internship at Ekathva Innovation Pvt.Ltd.<br>
+<!--This is the project is done for my internship at Ekathva Innovation Pvt.Ltd.<br>-->
 
-contributor:<br>
+Contributor:<br>
 Subramanya K S.<br>
 
 Note: This Project is under development. <br>
