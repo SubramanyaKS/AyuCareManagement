@@ -14,7 +14,6 @@ def nhome(request):
     return render(request,"home.html")
 
 #Views for Ayucare Product
-
 @api_view(['GET','POST','DELETE'])
 def ayucare_list(request):
 # GET list of Ayucares, POST a new Ayucare, DELETE all Ayucares
@@ -23,8 +22,8 @@ def ayucare_list(request):
         title =request.GET.get('productname',None)
         if title is not None:
             ayucare =ayucare.filter(productname__icontains=title)
-            ayucare_serializer=AyucareSerializer(ayucare, many=True)
-            return JsonResponse(ayucare_serializer.data, safe=False)
+        ayucare_serializer=AyucareSerializer(ayucare, many=True)
+        return JsonResponse(ayucare_serializer.data, safe=False)
     elif request.method=='POST':
         Ayucare_data=JSONParser().parse(request)
         ayucare_serializer=AyucareSerializer(data=Ayucare_data)
@@ -83,8 +82,8 @@ def user_list(request):
         title =request.GET.get('username',None)
         if title is not None:
             user =user.filter(username__icontains=title)
-            user_serializer=UserSerializer(user, many=True)
-            return JsonResponse(user_serializer.data, safe=False)
+        user_serializer=UserSerializer(user, many=True)
+        return JsonResponse(user_serializer.data, safe=False)
     elif request.method=='POST':
         user_data=JSONParser().parse(request)
         user_serializer=UserSerializer(data=user_data)
@@ -101,7 +100,7 @@ def user_list(request):
 def user_detail(request, pk):
     # find User by pk (id)
     try:
-        user = Purchased.objects.get(pk=pk)
+        user = User.objects.get(pk=pk)
         if request.method=='GET':
             user_serializer=UserSerializer(user)
             return JsonResponse(user_serializer.data)
