@@ -13,14 +13,23 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from AyucareApp.views import nhome, user_detail, user_list
+from AyucareApp.views import AyucareViewSet, PurchasedViewSet, UserViewSet, nhome, user_detail, user_list
 from django.contrib import admin
-from django.urls import path,re_path
+from django.urls import include,path,re_path
+
+from rest_framework import routers
 from AyucareApp.views import ayucare_detail,ayucare_list,ayucare_list_compound,purchased_detail
 
+router = routers.DefaultRouter()
+router.register(r'users', UserViewSet)
+router.register(r'ayucare', AyucareViewSet)
+router.register(r'purchased', PurchasedViewSet)
+
 urlpatterns = [
+    path('', include(router.urls)),
     path('admin/', admin.site.urls),
     path('home/',nhome),
+    
     re_path('^api/ayucare$', ayucare_list),
     re_path('^api/ayucare/(?P<pk>[0-9]+)$', ayucare_detail),
     re_path('^api/ayucare/compound$', ayucare_list_compound),

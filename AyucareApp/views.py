@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser
 from rest_framework import status
+from rest_framework import viewsets
 from AyucareApp.models import Ayucare, Purchased, User
 from AyucareApp.serializers import AyucareSerializer, UserSerializer
 from AyucareApp.serializers import PurchasedSerializer
@@ -10,15 +11,28 @@ from django.db.models import Q
 
 
 # Create your views here.
+class UserViewSet(viewsets.ModelViewSet):
+   queryset = User.objects.all()
+   serializer_class = UserSerializer
+
+class PurchasedViewSet(viewsets.ModelViewSet):
+   queryset = Purchased.objects.all()
+   serializer_class = PurchasedSerializer
+
+class AyucareViewSet(viewsets.ModelViewSet):
+   queryset = Ayucare.objects.all()
+   serializer_class = AyucareSerializer
+
+
 def nhome(request):
     return render(request,"home.html")
-
+# API views to test in postman
 #Views for Ayucare Product
 @api_view(['GET','POST','DELETE'])
 def ayucare_list(request):
 # GET list of Ayucares, POST a new Ayucare, DELETE all Ayucares
     if request.method=='GET':
-        ayucare = Ayucare.objects.all()
+        ayucare = Ayucare.objects.all()   
         title =request.GET.get('productname',None)
         if title is not None:
             ayucare =ayucare.filter(productname__icontains=title)
@@ -146,3 +160,5 @@ def purchased_detail(request, pk):
 
     except Purchased.DoesNotExist:
         return JsonResponse({'message':'The Purchased does not exist'}, status=status.HTTP_404_NOT_FOUND)
+
+
