@@ -29,7 +29,6 @@ urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
     path('home/',nhome),
-    
     re_path('^api/ayucare$', ayucare_list),
     re_path('^api/ayucare/(?P<pk>[0-9]+)$', ayucare_detail),
     re_path('^api/ayucare/compound$', ayucare_list_compound),

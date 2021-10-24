@@ -80,7 +80,7 @@ def ayucare_list_compound(request):
     ayucare = Ayucare.objects.all()
     productname=request.GET.get('productname',None)
     cure=request.GET.get('cure',None)
-    ayucare = ayucare.filter(Q(productname_icontains=productname)&Q(cure_icontains=cure))
+    ayucare = ayucare.filter(Q(productname__icontains=productname)&Q(cure__icontains=cure))
     if ayucare is not None:
         print(ayucare)
         if request.method=='GET':
