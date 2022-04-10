@@ -23,6 +23,11 @@ Subramanya K S.<br>
 
 
 ## How to Run the Application
+Clone this repository:
+Then install python django and all requirements:
+```
+pip install -r requirements.txt
+```
 
 Create the DB tables first:
 ```
