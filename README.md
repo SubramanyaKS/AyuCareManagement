@@ -24,8 +24,9 @@ Subramanya K S.<br>
 
 ## How to Run the Application
 Clone this repository:
-
-
+```
+git clone
+```
 
 Then install python django and all requirements:
 ```
