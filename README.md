@@ -16,7 +16,7 @@ A REST API (also known as RESTful API) is an application programming interface (
 * Programming language: Python.
 <br>
 <b>This is the project is done for my internship at Ekathva Innovation Pvt.Ltd.</b><br>
-
+<br>
 Contributor:<br>
 Subramanya K S.<br>
 
@@ -24,6 +24,9 @@ Subramanya K S.<br>
 
 ## How to Run the Application
 Clone this repository:
+
+
+
 Then install python django and all requirements:
 ```
 pip install -r requirements.txt
