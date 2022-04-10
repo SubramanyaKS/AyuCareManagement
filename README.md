@@ -25,7 +25,7 @@ Subramanya K S.<br>
 ## How to Run the Application
 Clone this repository:
 ```
-git clone
+git clone https://github.com/SubramanyaKS/AyuCareManagement.git
 ```
 
 Then install python django and all requirements:
