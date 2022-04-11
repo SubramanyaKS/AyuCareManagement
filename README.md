@@ -33,13 +33,18 @@ Then install python django and all requirements:
 pip install -r requirements.txt
 ```
 
-Create the DB tables first:
+Create the DB tables first, connect to it and migrate:
 ```
+python manage.py makemigrations
 python manage.py migrate
+```
+Create a Super User:
+```
+python manage.py createsuperuser 
 ```
 Run the development web server:
 ```
-python manage.py runserver 8080
+python manage.py runserver
 ```
 Open the URL http://localhost:8080/ to access the application.
 
