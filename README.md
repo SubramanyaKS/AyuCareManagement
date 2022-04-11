@@ -22,7 +22,8 @@ Subramanya K S.<br>
 
 
 
-## How to Run the Application
+## How to install and run the Application.
+
 Clone this repository:
 ```
 git clone https://github.com/SubramanyaKS/AyuCareManagement.git
