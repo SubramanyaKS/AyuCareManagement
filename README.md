@@ -1,4 +1,4 @@
-# Project Title: Django Based REST Api Development for Ayucare Management.
+# Django Based REST Api Development for Ayucare Management.
 
 <img src="https://img.shields.io/github/issues/SubramanyaKS/AyuCareManagement"/>
 <img src="https://img.shields.io/github/forks/SubramanyaKS/AyuCareManagement?color=yellow&logoColor=black"/>
