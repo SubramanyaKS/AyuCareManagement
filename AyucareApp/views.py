@@ -69,7 +69,7 @@ def ayucare_detail(request, pk):
 
 
         elif request.method=='DELETE':
-            Ayucare.delete()
+            ayucare.delete()
             return JsonResponse({'message':'Ayucare was deleted successfully!'}, status=status.HTTP_204_NO_CONTENT)
 
     except Ayucare.DoesNotExist:
@@ -128,7 +128,7 @@ def user_detail(request, pk):
             return JsonResponse(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
         elif request.method=='DELETE':
-            User.delete()
+            user.delete()
             return JsonResponse({'message':'User was deleted successfully!'}, status=status.HTTP_204_NO_CONTENT)
 
     except User.DoesNotExist:
@@ -155,7 +155,7 @@ def purchased_detail(request, pk):
             return JsonResponse(purchased_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
         elif request.method=='DELETE':
-            Purchased.delete()
+            purchased.delete()
             return JsonResponse({'message':'Purchased was deleted successfully!'}, status=status.HTTP_204_NO_CONTENT)
 
     except Purchased.DoesNotExist:
