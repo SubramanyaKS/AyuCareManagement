@@ -26,6 +26,7 @@ class AyucareViewSet(viewsets.ModelViewSet):
 
 def nhome(request):
     return render(request,"home.html")
+    
 # API views to test in postman
 #Views for Ayucare Product
 @api_view(['GET','POST','DELETE'])
