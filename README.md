@@ -24,7 +24,7 @@ A REST API (also known as RESTful API) is an application programming interface (
 <b>This is the project is done for my internship at <a href="https://www.ekathvainnovations.com">Ekathva Innovation Pvt.Ltd.</a></b><br>
 <br>
 
-[Link](https://ayucare.herokuapp.com/)
+Project is hosted on the herku app. Click the [Link](https://ayucare.herokuapp.com/) to view.
 ---
 
 ### Project Structure.
