@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block title %}
+User Details of Ayucare
+{% endblock %}
+{% block content %}
+<h1> Users Details </h1>
+<br>
+{% for p in data %}
+    <p><b>User Name:</b>{{ p.username}}</p>
+    <p><b>Email:</b>{{ p.email }}</p>
+    <br><br>
+{% endfor %}
+
+{% endblock %}
