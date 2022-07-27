@@ -1,3 +1,4 @@
+from django.http import request, response
 from django.shortcuts import render
 from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser
@@ -8,6 +9,7 @@ from AyucareApp.serializers import AyucareSerializer, UserSerializer
 from AyucareApp.serializers import PurchasedSerializer
 from rest_framework.decorators import api_view
 from django.db.models import Q
+import requests
 
 
 # Create your views here.
@@ -26,6 +28,16 @@ class AyucareViewSet(viewsets.ModelViewSet):
 
 def nhome(request):
     return render(request,"home.html")
+
+def user_list_details(request):
+    response=requests.get('http://127.0.0.1:8000/users/')
+    data=response.json()
+    return render(request,'Users_details.html',{'data':data})
+
+def ayucare_list_details(request):
+    response=requests.get('http://127.0.0.1:8000/ayucare/')
+    data=response.json()
+    return render(request,'Ayucare_details.html',{'data':data})
     
 # API views to test in postman
 #Views for Ayucare Product
