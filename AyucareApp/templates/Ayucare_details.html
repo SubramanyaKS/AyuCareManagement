@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block title %}
+Product Details of Ayucare
+{% endblock %}
+{% block content %}
+<h1> Ayucare Product Details </h1>
+<br>
+{% for p in data %}
+    <p><b>Product name:</b> {{ p.productname }}</p>
+    <p><b>Details:</b>{{ p.details }}</p>
+    <p><b>cure:</b>{{ p.cure }}</p>
+    <p><b>Availability: </b>{{ p.availability }}</p>
+    <p><b>Price: </b>{{ p.price }}</p>
+    <p><b> Manufacture Date:</b>{{p.manufacturedate}}</p>
+    <p><b>Expire Date</b>{{p.expiredate}}</p>
+    <br><br>
+{% endfor %}
+
+{% endblock %}
