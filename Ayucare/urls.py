@@ -13,7 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from AyucareApp.views import AyucareViewSet, PurchasedViewSet, UserViewSet, nhome, user_detail, user_list
+from AyucareApp.views import AyucareViewSet, PurchasedViewSet, UserViewSet, ayucare_list_details, nhome, user_detail, user_list, user_list_details
 from django.contrib import admin
 from django.urls import include,path,re_path
 
@@ -35,4 +35,6 @@ urlpatterns = [
     re_path('^api/user$', user_list),
     re_path('^api/user/(?P<pk>[0-9]+)$', user_detail),
     re_path('^api/purchased/(?P<pk>[0-9]+)$', purchased_detail),
+    path('userlist/',user_list_details),
+    path('ayucarelist/',ayucare_list_details),
 ]
