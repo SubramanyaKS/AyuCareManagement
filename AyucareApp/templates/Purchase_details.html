@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block title %}
+Purchase Details of Ayucare
+{% endblock %}
+{% block content %}
+<h1> Ayucare Purchased Details </h1>
+<br>
+{% for p in data %}
+    <p><b>User Name: </b>{{ p.user.username }}</p>
+    <p><b>Purchased Product: </b>{{ p.ayu.productname }}</p>
+    <p><b>Quantity: </b>{{ p.quantity }}</p>
+    <br>
+{% endfor %}
+
+{% endblock %}
