@@ -38,6 +38,11 @@ def ayucare_list_details(request):
     response=requests.get('http://127.0.0.1:8000/ayucare/')
     data=response.json()
     return render(request,'Ayucare_details.html',{'data':data})
+
+def purchase_list_details(request):
+    response=requests.get('http://127.0.0.1:8000/purchased/')
+    data=response.json()
+    return render(request,'Purchase_details.html',{'data':data})
     
 # API views to test in postman
 #Views for Ayucare Product
