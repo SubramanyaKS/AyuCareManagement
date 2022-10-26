@@ -16,10 +16,10 @@ A REST API (also known as RESTful API) is an application programming interface (
 ---
 
 ### Technologies used.<br><br>
-* Django and REST API framework.
-* Database : Mongodb (currently in local machine and also in cloud).
-* Programming language: Python.
-* hosted heroku
+* Framework :  ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)
+* Database : 	![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+* Programming language: ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+* Hosted/ Deployed : ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
 <br>
 <b>This is the project is done for my internship at <a href="https://www.ekathvainnovations.com">Ekathva Innovation Pvt.Ltd.</a></b><br>
 <br>
