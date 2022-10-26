@@ -3,6 +3,8 @@
 <img src="https://img.shields.io/github/issues/SubramanyaKS/AyuCareManagement"/>
 <img src="https://img.shields.io/github/forks/SubramanyaKS/AyuCareManagement?color=yellow&logoColor=black"/>
 
+![GitHub language count](https://img.shields.io/github/languages/count/SubramanyaKS/AyuCareManagement?style=for-the-badge)
+
 ### Django
 Django is a high-level Python web framework that enables rapid development of secure and maintainable websites. Built by experienced developers, Django takes care of much of the hassle of web development, so you can focus on writing your app without needing to reinvent the wheel. It is free and open source, has a thriving and active community, great documentation, and many options for free and paid-for support.
 
