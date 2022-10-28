@@ -86,28 +86,36 @@ A REST API (also known as RESTful API) is an application programming interface (
 ---
 
 ## How to install and run the Application.
-1. To Get Started, Fork the repository to your github account:
 
-2. Clone this repository:
+1. Install Python from the [python website](https://www.python.org/).
+
+2. Install Virtual environment globally
+```
+$ pip install virtualenv
+```
+
+3. To Get Started, Fork the repository to your github account:
+
+4. Clone this repository:
 ```
 git clone https://github.com/SubramanyaKS/AyuCareManagement.git
 ```
 
-3. Then install python django and all requirements:
+5. Then install python django and all requirements:
 ```
 pip install -r requirements.txt
 ```
 
-4. Create the DB tables first, connect to it and migrate:
+6. Create the DB tables first, connect to it and migrate:
 ```
 python manage.py makemigrations
 python manage.py migrate
 ```
-5. Create a Super User:
+7. Create a Super User:
 ```
 python manage.py createsuperuser 
 ```
-6. Run the development web server:
+8. Run the development web server:
 ```
 python manage.py runserver
 ```
