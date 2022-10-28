@@ -127,7 +127,27 @@ python manage.py runserver
 Open the URL http://localhost:8080/ to access the application.
 
 ---
+### API Endpoints
 
+| HTTP Verbs | Endpoints | Action |
+| --- | --- | --- |
+| GET | `/users` | To get the user list |
+| POST | `/users` | To post/add the user data |
+| DELETE | `/users/:userid` | to delete the record of particular user id |
+| PUT | `/users/:userid` | To update the record of particular user id |
+| GET | `/ayucare` | To get the ayucare product list |
+| POST | `/ayucare` | To post/add the ayucare product data |
+| DELETE | `/ayucare/:ayucareid` | to delete the record of particular ayucare product id |
+| PUT | `/ayucare/:ayucareid` | To update the record of particular ayucare product id |
+| GET | `/purchased` | To get the ayucare purchased list |
+| POST | `/purchased` | To post/add the ayucare purchased  data |
+| DELETE | `/purchased/:purchasedid` | to delete the record of particular ayucare product purchased  id |
+| PUT | `/purchased/:purchasedid` | To update the record of particular ayucare product purchased id |
+
+
+
+
+---
 If you like the work 🌟 the repository.
 
 Thank you
