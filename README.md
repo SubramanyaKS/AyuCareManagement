@@ -85,7 +85,12 @@ A REST API (also known as RESTful API) is an application programming interface (
 
 ---
 
-## How to install and run the Application.
+### Prerequisite.
+
+1. Python
+2. Git
+
+### How to install and run the Application.
 
 1. Install Python from the [python website](https://www.python.org/).
 
